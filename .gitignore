@@ -1,0 +1,65 @@
+# ROS2工作区构建产物
+build/
+install/
+log/
+
+# Protocol Buffers生成文件
+*.pb.h
+*.pb.cc
+
+# CMake产物
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+
+# C++编译产物
+*.o
+*.so
+*.a
+*.dylib
+
+# Python编译产物
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+
+# IDE文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 操作系统文件
+.DS_Store
+Thumbs.db
+
+# 临时文件
+*.tmp
+*.temp
+*.log
+*.bak
+*.backup
+
+# 测试覆盖率文件
+coverage/
+.coverage
+*.gcda
+*.gcno
+
+# 依赖文件
+.deps/
+deps/
+
+# ROS特定
+.ros/
+
+# 自定义忽略（可根据需要添加）
+# 例如：特定的配置文件或数据文件
+# config/local_config.yaml
+# data/maps/

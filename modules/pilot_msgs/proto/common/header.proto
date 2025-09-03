@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package pilot_msgs.common;
+
+/**
+ * @brief 通用消息头部定义
+ * 包含时间戳、序号、frame_id等通用信息
+ */
+
+// 消息头部
+message Header {
+  double timestamp = 1;    // Unix时间戳 (秒)
+  uint64 sequence_num = 2; // 消息序号
+  string frame_id = 3;     // 坐标系ID
+  string source = 4;       // 数据来源
+}
+
+// 状态枚举
+enum Status {
+  UNKNOWN = 0;
+  OK = 1;
+  WARNING = 2;
+  ERROR = 3;
+  TIMEOUT = 4;
+}
+
+// 通用状态消息
+message StatusMsg {
+  Header header = 1;
+  Status status = 2;
+  string message = 3;
+  int32 error_code = 4;
+}

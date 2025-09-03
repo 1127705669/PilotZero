@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package pilot_msgs.localization;
+
+import "pilot_msgs/common/geometry.proto";
+import "pilot_msgs/common/header.proto";
+
+/**
+ * @brief IMU传感器数据消息
+ * 包含三轴加速度、三轴角速度、姿态四元数及协方差信息
+ */
+message ImuData {
+  pilot_msgs.common.Header header = 1;
+  
+  // 姿态四元数
+  pilot_msgs.common.Quaternion orientation = 2;
+  
+  // 三轴角速度 (rad/s)
+  pilot_msgs.common.Vector3 angular_velocity = 3;
+  
+  // 三轴线性加速度 (m/s²)
+  pilot_msgs.common.Vector3 linear_acceleration = 4;
+  
+  // 协方差矩阵 (3x3矩阵，按行存储)
+  repeated double orientation_covariance = 5;           // [9] 姿态协方差
+  repeated double angular_velocity_covariance = 6;      // [9] 角速度协方差
+  repeated double linear_acceleration_covariance = 7;   // [9] 线性加速度协方差
+}

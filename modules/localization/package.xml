@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>localization</name>
+  <version>0.3.0</version>
+  <description>Localization module with pure Protocol Buffer interface and ROS integration</description>
+  <maintainer email="dev@pilotzero.com">PilotZero Team</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- 核心ROS2依赖 -->
+  <depend>rclcpp</depend>
+  <depend>rclcpp_components</depend>
+  <depend>sensor_msgs</depend>
+  
+  <!-- 消息包依赖 -->
+  <depend>pilot_msgs</depend>
+  
+  <!-- Common框架依赖 -->
+  <depend>common</depend>
+  
+  <!-- YAML依赖 -->
+  <build_depend>libyaml-cpp-dev</build_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

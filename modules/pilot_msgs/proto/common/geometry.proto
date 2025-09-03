@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package pilot_msgs.common;
+
+/**
+ * @brief 通用几何消息定义
+ * 用于在各算法模块间共享基础几何数据结构
+ */
+
+// 三维向量
+message Vector3 {
+  double x = 1;
+  double y = 2;
+  double z = 3;
+}
+
+// 二维向量
+message Vector2 {
+  double x = 1;
+  double y = 2;
+}
+
+// 四元数姿态
+message Quaternion {
+  double x = 1;
+  double y = 2;
+  double z = 3;
+  double w = 4;
+}
+
+// 欧拉角姿态
+message Euler {
+  double roll = 1;   // 横滚角 (弧度)
+  double pitch = 2;  // 俯仰角 (弧度)
+  double yaw = 3;    // 偏航角 (弧度)
+}
+
+// 三维位姿
+message Pose3D {
+  Vector3 position = 1;
+  Quaternion orientation = 2;
+}
+
+// 二维位姿
+message Pose2D {
+  Vector2 position = 1;
+  double theta = 2;  // 方向角 (弧度)
+}
+
+// 带时间戳的位姿
+message PoseStamped {
+  double timestamp = 1;
+  Pose3D pose = 2;
+  string frame_id = 3;
+}

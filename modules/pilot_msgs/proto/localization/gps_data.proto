@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package pilot_msgs.localization;
+
+import "pilot_msgs/common/header.proto";
+
+/**
+ * @brief GPS定位数据消息
+ * 包含经纬度、高度、精度信息等GPS相关数据
+ */
+message GpsData {
+  pilot_msgs.common.Header header = 1;
+  
+  // 位置信息
+  double latitude = 2;         // 纬度 (度)
+  double longitude = 3;        // 经度 (度)
+  double altitude = 4;         // 高度 (米，相对于WGS84椭球)
+  
+  // 位置协方差 (3x3矩阵，按行存储：ENU坐标系)
+  repeated double position_covariance = 5;  // [9]
+  
+  // GPS状态信息
+  GpsStatus status = 6;        // GPS接收状态
+  int32 satellite_count = 7;   // 可见卫星数量
+  
+  // 精度因子
+  double hdop = 8;             // 水平精度因子
+  double vdop = 9;             // 垂直精度因子
+  double pdop = 10;            // 位置精度因子
+}
+
+// GPS状态枚举
+enum GpsStatus {
+  GPS_STATUS_NO_FIX = 0;       // 无定位
+  GPS_STATUS_FIX = 1;          // 2D/3D定位
+  GPS_STATUS_SBAS_FIX = 2;     // SBAS增强定位
+  GPS_STATUS_GBAS_FIX = 3;     // GBAS增强定位
+  GPS_STATUS_DGPS_FIX = 4;     // 差分GPS
+  GPS_STATUS_RTK_FLOAT = 5;    // RTK浮点解
+  GPS_STATUS_RTK_FIXED = 6;    // RTK固定解
+}

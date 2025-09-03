@@ -1,0 +1,59 @@
+# PilotZero System Pipeline Configuration
+# 定义模块、输入输出、频率和参数
+
+system:
+  name: pilot_zero_main
+  version: 0.3.0
+  description: "Config-driven autonomous driving communication pipeline"
+
+# ========== Key驱动的数据映射表 ==========
+data_keys:
+  # 使用统一的pilot_msgs包中的proto类型
+  imu_data:
+    proto_type: "pilot_msgs::localization::ImuData"
+    ros_topic: "/carla/ego/imu" 
+    ros_type: "sensor_msgs::msg::Imu"
+    
+  # 未来可添加的数据类型示例（注释状态）：
+  # gps_data:
+  #   proto_type: "pilot_msgs::localization::GpsData"
+  #   ros_topic: "/sensors/gps"
+  #   ros_type: "sensor_msgs::msg::NavSatFix"
+  #   
+  # pointcloud_data:
+  #   proto_type: "pilot_msgs::perception::PointCloud"
+  #   ros_topic: "/sensors/lidar/points"
+  #   ros_type: "sensor_msgs::msg::PointCloud2"
+
+modules:
+  # 定位模块 - TypeAdapter纯Proto接口
+  localization:
+    package: localization
+    plugin: localization::LocalizationComponent
+    frequency: 30.0 # Hz
+    parameters:
+      enable_debug: true
+
+  control:
+    package: control
+    plugin: control::ControlComponent
+    frequency: 10.0 # Hz
+    parameters:
+      control_gain_d: 0.05
+
+  # 感知模块示例（未来添加）
+  # perception:
+  #   package: perception
+  #   plugin: perception::PerceptionComponent
+  #   frequency: 20.0 # Hz
+  #   parameters:
+  #     detection_threshold: 0.5
+  #     
+  # 规划模块示例（未来添加）  
+  # planning:
+  #   package: planning
+  #   plugin: planning::PlanningComponent
+  #   frequency: 10.0 # Hz
+  #   parameters:
+  #     max_speed: 60.0
+
