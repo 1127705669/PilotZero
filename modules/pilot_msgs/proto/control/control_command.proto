@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package pilot_msgs.control;
+
+import "pilot_msgs/common/header.proto";
+
+// 车辆控制指令
+message ControlCommand {
+  // 消息头
+  pilot_msgs.common.Header header = 1;
+  
+  // 油门控制 (0.0 - 1.0)
+  double throttle = 2;
+  
+  // 刹车控制 (0.0 - 1.0)
+  double brake = 3;
+  
+  // 转向控制 (-1.0 到 1.0，负值左转，正值右转)
+  double steer = 4;
+  
+  // 手刹控制 (true = 手刹开启)
+  bool hand_brake = 5;
+  
+  // 倒车控制 (true = 倒车)
+  bool reverse = 6;
+  
+  // 档位控制 (0=空档, 1=前进, -1=倒车)
+  int32 gear = 7;
+  
+  // 手动控制模式 (true = 手动控制，false = 自动控制)
+  bool manual_gear_shift = 8;
+}
+

@@ -4,7 +4,7 @@
   <name>localization</name>
   <version>0.3.0</version>
   <description>Localization module with pure Protocol Buffer interface and ROS integration</description>
-  <maintainer email="dev@pilotzero.com">PilotZero Team</maintainer>
+  <maintainer email="ethan.liqi.yi@gmail.com">PilotZero Team</maintainer>
   <license>MIT</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>

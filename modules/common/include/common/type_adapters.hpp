@@ -4,7 +4,9 @@
 #include <rclcpp/rclcpp.hpp>
 #include <sensor_msgs/msg/imu.hpp>
 #include <sensor_msgs/msg/nav_sat_fix.hpp>
+#include <carla_msgs/msg/carla_ego_vehicle_control.hpp>
 #include <pilot_msgs/localization/imu_data.pb.h>
+#include <pilot_msgs/control/control_command.pb.h>
 // #include <pilot_msgs/localization/gps_data.pb.h>  // GPS proto头文件（待启用）
 
 /**

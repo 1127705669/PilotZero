@@ -13,6 +13,17 @@ data_keys:
     proto_type: "pilot_msgs::localization::ImuData"
     ros_topic: "/carla/ego/imu" 
     ros_type: "sensor_msgs::msg::Imu"
+
+  # 控制指令数据 - control模块输出 → CARLA
+  control_command:
+    proto_type: "pilot_msgs::control::ControlCommand"
+    ros_topic: "/carla/ego_vehicle/vehicle_control_cmd"
+    ros_type: "carla_msgs::msg::CarlaEgoVehicleControl"
+
+  # gps_data:
+  #   proto_type: "pilot_msgs::localization::GpsData"
+  #   ros_topic: "/sensors/gps"
+  #   ros_type: "sensor_msgs::msg::NavSatFix"
     
   # 未来可添加的数据类型示例（注释状态）：
   # gps_data:

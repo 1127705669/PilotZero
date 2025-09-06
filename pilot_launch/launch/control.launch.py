@@ -23,8 +23,8 @@ def generate_launch_description():
                 plugin='control::ControlComponent',
                 name='control_node',
                 parameters=[
-                    {'control_frequency': 20.0},
-                    {'enable_debug_output': True}
+                    {'module_name': 'control'},
+                    {'control_gain_d': 0.05}
                 ]
             ),
         ],

@@ -63,6 +63,7 @@ if(PROTO_FILES)
       ${CMAKE_CURRENT_BINARY_DIR}/proto_staging/${PROJECT_NAME}/common/header.proto
       ${CMAKE_CURRENT_BINARY_DIR}/proto_staging/${PROJECT_NAME}/localization/imu_data.proto
       ${CMAKE_CURRENT_BINARY_DIR}/proto_staging/${PROJECT_NAME}/localization/gps_data.proto
+      ${CMAKE_CURRENT_BINARY_DIR}/proto_staging/${PROJECT_NAME}/control/control_command.proto
     RESULT_VARIABLE _protobuf_result
   )
   

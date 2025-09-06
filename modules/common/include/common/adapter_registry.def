@@ -4,5 +4,6 @@
 // 语法：ADAPTER(KEY, PROTO_TYPE, ROS_TYPE)
 
 ADAPTER(imu, pilot_msgs::localization::ImuData, sensor_msgs::msg::Imu)
+ADAPTER(control_command, pilot_msgs::control::ControlCommand, carla_msgs::msg::CarlaEgoVehicleControl)
 
 // 未来添加新数据类型时，在pipeline.yaml的data_keys中配置即可
