@@ -143,7 +143,7 @@ void LocalizationComponent::quaternion_to_euler(const pilot_msgs::common::Quater
 {
   // 四元数到欧拉角转换 (ZYX旋转顺序)
   double qx = q.x();
-  double qy = q.y(); 
+  double qy = q.y();
   double qz = q.z();
   double qw = q.w();
   
