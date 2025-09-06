@@ -1,4 +1,0 @@
-[submodule "third_party/carla"]
-	path = third_party/carla
-	url = git@github.com:carla-simulator/carla.git
-	branch = carla-0.10.0
